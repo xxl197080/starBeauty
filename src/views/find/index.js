@@ -2,15 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 
-function Cinema() {
+function Find() {
   return (
     <div>
-      <h1>影院页面</h1>
+      <h1>发现页面</h1>
     </div>
   );
 }
 
-Cinema.propTypes = {
+Find.propTypes = {
 };
 
-export default connect()(Cinema);
+export default connect()(Find);
