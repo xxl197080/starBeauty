@@ -1,11 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
-
+import { Header, NewIcon } from './style.js'
 function Mine() {
   return (
     <div>
-      <h1>我的页面</h1>
+    <Header>
+    <NewIcon type="setting" />
+    <NewIcon type="ellipsis" />
+    </Header>
     </div>
   );
 }
