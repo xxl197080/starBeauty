@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Loadable from 'react-loadable';
 
-const Film = Loadable({
-  loader: () => import('./film'),
+const Home = Loadable({
+  loader: () => import('./home'),
   loading: () => <div>加载中</div>
 });
 const Cinema = Loadable({
@@ -24,10 +24,10 @@ function Movie() {
   return (
     <React.Fragment>
       <Switch>
-        <Route path="/film" component={Film} />
+        <Route path="/home" component={Home} />
         <Route path="/cinema" component={Cinema} />
         <Route path="/mine" component={Mine} />
-        <Redirect to="/film" />
+        <Redirect to="/home" />
       </Switch>
       <Navbar />
     </React.Fragment>
