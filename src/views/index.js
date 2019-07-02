@@ -7,8 +7,13 @@ const Film = Loadable({
   loader: () => import('./film'),
   loading: () => <div>加载中</div>
 });
-const Cinema = Loadable({
-  loader: () => import('./cinema'),
+const Home = Loadable({
+  loader: () => import('./home'),
+  loading: () => < div> 加载中 </div>
+});
+
+const Find = Loadable({
+  loader: () => import('./find'),
   loading: () => <div>加载中</div>
 });
 const Mine = Loadable({
@@ -25,9 +30,10 @@ function Movie() {
     <React.Fragment>
       <Switch>
         <Route path="/film" component={Film} />
-        <Route path="/cinema" component={Cinema} />
+        <Route path="/find" component={Find} />
         <Route path="/mine" component={Mine} />
-        <Redirect to="/film" />
+        <Route path="/home" component={Home} />
+        <Redirect to="/home" />
       </Switch>
       <Navbar />
     </React.Fragment>
