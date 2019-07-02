@@ -7,11 +7,10 @@ const Home = Loadable({
   loader: () => import('./home'),
   loading: () => <div>加载中</div>
 });
-const Home = Loadable({
-  loader: () => import('./home'),
+const Film = Loadable({
+  loader: () => import('./film'),
   loading: () => < div> 加载中 </div>
 });
-
 const Find = Loadable({
   loader: () => import('./find'),
   loading: () => <div>加载中</div>
