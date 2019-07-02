@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Loadable from 'react-loadable';
 
-const Film = Loadable({
-  loader: () => import('./film'),
+const Home = Loadable({
+  loader: () => import('./home'),
   loading: () => <div>加载中</div>
 });
 const Home = Loadable({

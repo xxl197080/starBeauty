@@ -1,16 +1,21 @@
 import React from 'react';
-import {
-  connect
-} from 'react-redux';
+import { connect } from 'react-redux';
+import { Topbar, HomeWrap, Logo, Search } from './style'
+import { Icon } from 'antd'
 
 
-function Home() {
-  return ( < div >
-    <h1 > 首页 </h1> 
-    </div>
-  );
+class Home extends React.Component {
+  render () {
+    return (
+      <HomeWrap>
+        <Topbar>
+          <Logo />
+          <Search><Icon type="search" /></Search>
+        </Topbar>
+      </HomeWrap>
+    )
+  }
 }
 
-Home.propTypes = {};
 
 export default connect()(Home);
