@@ -1,26 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {
-  Menu,
-  Icon
-} from 'antd';
-import {
   MenuWrap,
   SubMenuWrap,
   IconWrap
 } from './style'
-import { NavLink } from 'react-router-dom'
-// import {
-//   Tabs, Icon
-// } from 'antd';
-
-// const {
-//   TabPane
-// } = Tabs;
-
-// const {
-//   SubMenu
-// } = Menu;
 
 class Navbar extends React.Component {
   state = {
@@ -82,9 +66,6 @@ class Navbar extends React.Component {
     );
   }
 }
-
-Navbar.propTypes = {
-};
 
 export default connect()(Navbar);
 
