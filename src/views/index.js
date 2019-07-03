@@ -28,6 +28,10 @@ const Navbar = Loadable({
   loader: () => import('./navbar'),
   loading: () => <Spin indicator={antIcon} />
 });
+const Market = Loadable({
+  loader: () => import('./market'),
+  loading: () => <Spin indicator={antIcon} />
+});
 
 function Movie() {
   return (
@@ -37,6 +41,7 @@ function Movie() {
         <Route path="/find" component={Find} />
         <Route path="/mine" component={Mine} />
         <Route path="/home" component={Home} />
+        <Route path="/market" component={Market} />
         <Redirect to="/home" />
       </Switch>
       <Navbar />
