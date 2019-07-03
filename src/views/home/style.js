@@ -134,3 +134,18 @@ export const MainWrap = styled.div`
     }
   }
 `
+export const GoTop = styled.div`
+    width: 1.9rem;
+    height: 1.9rem;
+    position: fixed;
+    z-index: 999;
+    right: 0.6rem;
+    bottom: 2.5rem;
+    border-radius: 50%;
+    background-color: #fff;
+    background-image: url('./img/gotop.png');
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 60%;
+    opacity: 0.6;
+`
