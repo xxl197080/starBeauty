@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Topbar, HomeWrap, Logo, Search, SwiperWrap, NavWrap, Nav, NavItem, NavItemA, MainWrap } from './style'
-import { Icon } from 'antd'
+import { Topbar, HomeWrap, Logo, Search, SwiperWrap, NavWrap, Nav, NavItem, NavItemA, MainWrap, GoTop } from './style'
+import { Icon, BackTop } from 'antd'
 import * as actions from './store/actionCreates'
 // swiper js文件
 import Swiper from 'swiper/dist/js/swiper'
@@ -85,8 +85,15 @@ class Home extends React.Component {
             }
           </ul>
         </MainWrap>
+        <BackTop visibilityHeight={100} onClick={this.goTop} target={() => document.getElementsByClassName('hmZBat')[0]}>
+          <GoTop />
+        </BackTop>
       </HomeWrap>
     )
+  }
+  // 回到顶部按钮
+  goTop = () => {
+    window.scrollTo(0,0)
   }
   // 组件更新时创建 Swiper
   componentDidUpdate(prevProps){

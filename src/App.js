@@ -18,13 +18,17 @@ const Detail = Loadable({
   loader: () => import('./views/detail'),
   loading: () => <Spin indicator={antIcon} />
 });
-
+const Market = Loadable({
+  loader: () => import('./views/market'),
+  loading: () => <Spin indicator={antIcon} />
+});
 export default class App extends Component {
   render() {
     return (
       <Router>
         <Switch>
           <Route path="/detail" component={Detail} />
+          <Route path="/market" component={Market} />
           <Route path="/" component={Index} />
         </Switch>
       </Router>
