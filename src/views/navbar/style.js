@@ -10,7 +10,8 @@ position:fixed;
 bottom:0;
 display:flex;
 justify-content:space-around;
-background: #fff;
+background:#fff;
+
 `
 
 export const SubMenuWrap = styled(NavLink)`
