@@ -18,7 +18,7 @@ export const asyncGetState = () => {
   return (dispatch) => {
     http.get('http://www.ixingmei.com/mobile/index.php?act=index')
       .then(res => {
-        console.log(res.datas)
+        // console.log(res.datas)
         let bannerList = res.datas[0].adv_list.item
         let movieList = res.datas[1].home3
         let goodList = res.datas[2].home3
