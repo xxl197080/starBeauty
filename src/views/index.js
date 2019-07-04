@@ -44,7 +44,7 @@ function Movie() {
         <Route path="/market" component={Market} />
         <Redirect to="/home" />
       </Switch>
-    <Navbar />
+      <Navbar />
     </React.Fragment>
   );
 }

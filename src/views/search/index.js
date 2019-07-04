@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { SearchWrap } from './style'
 import {Link} from 'react-router-dom'
 import {Icon} from 'antd'
+import * as actions from './store/actionCreates'
 
 class Search extends React.Component {
   render () {
@@ -16,15 +17,19 @@ class Search extends React.Component {
           </div>
           <div className="header-inp">
             <Icon type="search" className="search-icon" />
-            <input type="text" className="search-inp" />
+            <input type="text" className="search-inp" value={this.props.inputVal} onChange={this.props.chgInputVal} />
           </div>
-          <div className="header-r">搜索</div>
+          <Link
+          className="header-r"
+          onClick={this.props.onClickSearch.bind(null, this.props.inputVal)}
+          to="/detail"
+          >搜索</Link>
         </header>
         <div className="main">
           <div className="main-img">
             <i></i>
           </div>
-          <p>搜索你需要的关键词</p>
+          <p className="p">搜索你需要的关键词</p>
         </div>
       </SearchWrap>
     );
@@ -33,4 +38,18 @@ class Search extends React.Component {
 }
 
 
-export default connect()(Search);
+export default connect(
+  state => ({
+    inputVal: state.search.inputVal,
+    goodsList: state.search.goodsList
+  }),
+  (dispatch) => ({
+    chgInputVal (event) {
+      let value = event.target.value
+      dispatch(actions.onChgInputVal(value));
+    },
+    onClickSearch (inputVal) {
+      dispatch(actions.asyncGetGoodsList(inputVal));
+    }
+  })
+)(Search);

@@ -5,10 +5,12 @@ import homeReducer from '@/views/home/store/reducer'
 import marketReducer from '@/views/market/store/reducer'
 import filmReducer from '@/views/film/store/reducer'
 import mineReducer from '@/views/mine/store/reducer'
+import searchReducer from '@/views/search/store/reducer'
 export const find = findReducer;
 export const home = homeReducer;
 export const mine = mineReducer;
 export const film = filmReducer;
 export const market = marketReducer;
+export const search = searchReducer;
 
 
