@@ -10,7 +10,6 @@ export const asyncNowFilmList=()=>{
         "X-Host": "mall.film-ticket.film.list"
         }
       }).then(res=>{
-        console.log(res.data.data.films)
         dispatch(onNowFilmList(res.data.data.films))
       })
     }
@@ -42,3 +41,9 @@ export const chgBools=(key)=>({
   type:Types.CHG_BOOL,
   key
 })
+
+// export const asyncFilmList=(key)=>({
+//   if(key==="1"){
+
+//   }
+// })

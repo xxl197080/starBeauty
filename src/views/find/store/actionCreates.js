@@ -5,7 +5,6 @@ export const asyncImgList= () => {
   return (dispatch)=>{
     axios.get('http://localhost:3001/findlist')
     .then(res=>{
-      console.log(res)
       dispatch(onImgList(res.data))
     })
     }

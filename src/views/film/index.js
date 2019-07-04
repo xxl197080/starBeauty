@@ -16,7 +16,7 @@ class Film extends React.Component {
   nowPlaying = key => {
     if (key === "1") {
       return (
-        <FilmsWrap className="smallbody">
+        <FilmsWrap ref='filmbox' >
           {this.props.nowFilmList.map(item => {
             return (
               <ListWrap key={item.filmId}>
@@ -30,9 +30,9 @@ class Film extends React.Component {
                     <div className="assess parent_score">
                       <div
                         className="fl stars"
-                        style={{ backgroundImage: "url(./img/star8.png" }}
+                        style={{ backgroundImage: "url(http://m.ixingmei.com/movie/img/star9.png)" }}
                       />
-                      <div className="fl score ng-binding">{item.grade}</div>
+                      <div className="fl score ng-binding">{item.grade? item.grade : "7.2"}</div>
                     </div>
                   </div>
                   <div className="p-right">
@@ -47,6 +47,7 @@ class Film extends React.Component {
               </ListWrap>
             );
           })}
+          <p className="bottommsg" ref="msg1">已全部加载完成</p>
         </FilmsWrap>
       );
     } else {
@@ -67,13 +68,14 @@ class Film extends React.Component {
                         className="fl stars"
                         style={{ backgroundImage: "url(./img/star8.png" }}
                       />
-                      <div className="fl score ng-binding">{item.grade}</div>
+                      <div className="fl score ng-binding">8.5</div>
                     </div>
                   </div>
                 </div>
               </ListWrap>
             );
           })}
+          <p className="bottommsg" ref="msg">已全部加载完成</p>
         </FilmsWrap>
       );
     }
@@ -98,26 +100,34 @@ class Film extends React.Component {
           <SubTabsWrap
             onClick={this.chgClass.bind(this, this.props.keyList[0])}
             key={this.props.keyList[0]}
-            className={this.props.bool === "1" ? "active" : "common"}
+            className={this.props.bool === "1" ? "active" : ""}
           >
             正在上映
           </SubTabsWrap>
           <SubTabsWrap
             onClick={this.chgClass.bind(this, this.props.keyList[1])}
             key={this.props.keyList[1]}
-            className={this.props.bool === "2" ? "active " : "common"}
+            className={this.props.bool === "2" ? "active " : ""}
           >
             即将上映
           </SubTabsWrap>
         </TabsWrap>
         {this.nowPlaying(this.props.bool)}
+        
       </FilmWrap>
     );
   }
+
   componentDidMount() {
     this.props.getNowFilmList();
     this.props.getSoonFilmList();
+    this.refs['filmbox'].addEventListener('scroll',this.props.scrollAct.bind(this,this.props.bool))
+    console.log(this.refs['filmbox'])
   }
+  componentWillUnmount(){
+    console.log(111)
+    this.refs['filmbox'].removeEventListener('scroll',this.props.scrollAct)
+   }
 }
 
 export default connect(
@@ -136,6 +146,20 @@ export default connect(
     },
     chgBool(key) {
       dispatch(actions.chgBools(key));
+    },
+    scrollAct(key){
+      let filmbox=this.refs['filmbox']
+      let scrollHeight=filmbox.documentElement.scrollHeight
+      let scrollTop=filmbox.scrollTop
+      let clientHeight=filmbox.clientHeight
+      console.log(scrollHeight,scrollTop,clientHeight,filmbox)
+      if(scrollHeight-scrollTop-clientHeight<=0 && this.props.nowFilmList.length!==0){
+        this.refs["msg"].style="display:block"
+
+        // dispatch(actions.asyncFilmList(key))
+      }else{
+        this.refs["msg"].style="display:none"
+      }
     }
   })
 )(Film);

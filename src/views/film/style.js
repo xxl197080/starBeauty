@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const FilmWrap = styled.div `
   height:100%;
   box-sizing:border-box;
+  background:#fff;
 `
 
 export const HeaderWrap = styled.div `
@@ -56,7 +57,6 @@ box-sizing:border-box;
 `
 
 export const ListWrap = styled.div`
-  overflow-y:auto;
   .movie-item {
       width: 94%;
       margin: 0 auto;
@@ -132,6 +132,15 @@ export const ListWrap = styled.div`
 export const FilmsWrap = styled.div`
 padding-top:22%;
 overflow-y:auto;
-padding-bottom:13%;
+padding-bottom:11%;
 background:#fff;
+.bottommsg{
+    text-align: center;
+    line-height: 30px;
+    font-size: 14px;
+    background-color: #f0f0f0;
+    color: #e76a00;
+    margin-bottom:0;
+    display:none;
+}
 `
