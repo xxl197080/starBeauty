@@ -10,11 +10,11 @@ position:fixed;
 bottom:0;
 display:flex;
 justify-content:space-around;
-  
+background:#fff;
+
 `
 
-export const SubMenuWrap = styled(NavLink)
-`
+export const SubMenuWrap = styled(NavLink)`
   display: flex;
   flex-direction: column;
    color: #7f7f7f;
