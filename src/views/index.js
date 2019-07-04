@@ -49,7 +49,5 @@ function Movie() {
   );
 }
 
-Movie.propTypes = {
-};
 
 export default connect()(Movie);

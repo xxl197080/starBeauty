@@ -18,10 +18,10 @@ class Home extends React.Component {
     let goodList = this.props.goodList || {title: '123', item: [1, 2, 3] }
     // console.log(movieList)
     return (
-      <HomeWrap>
+      <HomeWrap ref={(el) => this.homeWrap = el}>
         <Topbar>
           <Logo />
-          <Search><Icon type="search" /></Search>
+          <Search to="/search"><Icon type="search" /></Search>
         </Topbar>
         <SwiperWrap>
           <div className="swiper-container">
@@ -85,16 +85,17 @@ class Home extends React.Component {
             }
           </ul>
         </MainWrap>
-        <BackTop visibilityHeight={100} onClick={this.goTop} target={() => document.getElementsByClassName('hmZBat')[0]}>
+        <BackTop
+          visibilityHeight={100}
+          target={ () => document.getElementsByClassName('sc-bxivhb')[0] || window }
+          >
           <GoTop />
         </BackTop>
+
       </HomeWrap>
     )
   }
-  // 回到顶部按钮
-  goTop = () => {
-    window.scrollTo(0,0)
-  }
+
   // 组件更新时创建 Swiper
   componentDidUpdate(prevProps){
     // 有好几个数据，会更新几次，所以需要判断一下, 这个生命周期函数会接收到上一次的props，根据上一次的props和this.props中的bannerList有没有变化，有变化就说明banner数据渲染到页面了，就可以 new Swiper
@@ -110,19 +111,13 @@ class Home extends React.Component {
         },
       })
     }
+    // console.log(this.homeWrap)
   }
   componentDidMount () {
     this.props.getAllList() // 获取首页大部分数据
     this.props.getNavList() // 获取菜单栏数据，自己写的 db.json 数据
-    // this.mySwiper = new Swiper('.swiper-container', {
-        // loop: true,
-        // autoplay: {
-        //   disableOnInteraction: false,
-        // },
-        // // 如果需要分页器
-        // pagination: {
-        //   el: '.swiper-pagination',
-        // },
+    // this.homeWrap.addEventListener('scroll', () => {
+    //   console.log(1);
     // })
   }
   // 组件销毁的时候把轮播图清除
@@ -136,7 +131,7 @@ export default connect((state) => ({
   bannerList: state.home.bannerList,
   navList: state.home.navList,
   movieList: state.home.movieList,
-  goodList: state.home.goodList,
+  goodList: state.home.goodList
 }), (dispatch => ({
   getAllList () {
     dispatch(actions.asyncGetState())

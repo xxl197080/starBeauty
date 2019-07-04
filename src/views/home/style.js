@@ -28,7 +28,7 @@ export const Logo = styled.h1`
   height: 40px;
 `
 
-export const Search = styled.a`
+export const Search = styled(NavLink)`
   display: block;
   width: 2rem;
   height: 2rem;
