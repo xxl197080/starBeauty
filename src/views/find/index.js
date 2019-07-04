@@ -40,8 +40,6 @@ class Find extends React.Component {
   }
 }
 
-
-
 export default connect(({find})=>({
 imgList:find.imgList
 }),

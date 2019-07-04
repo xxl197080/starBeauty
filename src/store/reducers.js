@@ -2,7 +2,9 @@
 
 import findReducer from '@/views/find/store/reducer.js'
 import homeReducer from '@/views/home/store/reducer'
+import filmReducer from '@/views/film/store/reducer'
 
 export const find=findReducer
 export const home = homeReducer;
+export const film = filmReducer;
 

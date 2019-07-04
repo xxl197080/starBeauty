@@ -8,5 +8,15 @@
     { "id": 6, "name": "日用美妆", "img": "./img/nav6.png" },
     { "id": 7, "name": "复联手办", "img": "./img/nav7.png" },
     { "id": 8, "name": "JJ演唱会", "img": "./img/nav8.png" }
-  ]
+  ],
+ "findlist": [{
+  "id": "111654",
+  "litpic": "http://img2.ixingmei.com/uploads/allimg/180302/1858192-1P3021021020-L.jpg",
+  "litpic_height": "266",
+  "litpic_width": "800",
+  "title": "新人有礼",
+  "url": "ixingmei://goto?type=inner_web&url=https%3A%2F%2Fat.umeng.com%2FeCWnym",
+  "url_wap": "https://at.umeng.com/eCWnym"
+ }] 
+
 }
