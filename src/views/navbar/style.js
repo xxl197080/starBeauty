@@ -11,6 +11,7 @@ bottom:0;
 display:flex;
 justify-content:space-around;
 background:#fff;
+
 `
 
 export const SubMenuWrap = styled(NavLink)`
