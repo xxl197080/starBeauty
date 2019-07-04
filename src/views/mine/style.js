@@ -17,14 +17,58 @@ export const Header = styled.header`
       border-bottom: 0.05rem solid #d9d9d9;
     }
 `
+export const Menu = styled.div`
+    position: absolute;
+    top: 1.7rem;
+    right: 0.2rem;
+    width: 5rem;
+    ul{
+      background: rgba(85,85,85,0.55);
+      border-radius: 0.2rem;
+      margin:0;
+      .arrow{
+        display: block;
+        float: right;
+        margin-top:-0.8rem;
+        margin-right: 0.4rem;
+        font-size: 0;
+        line-height: 0;
+        border-width: 0.4rem;
+        border-color: transparent transparent rgba(85,85,85,0.55) transparent;
+        border-style: dashed dashed solid dashed;
+      }
+      a{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        li{
+          padding: 0.5rem;
+          font-size: 0.6rem;
+          color: #FFF !important;
+        }
+       }
+       .border{
+          border-bottom:1px solid #ccc;
+          border-top:1px solid #ccc;
+        }
+
+    }
+`
+
 export const NewIcon = styled(Icon)`
+  color:#fff;
   cursor:pointer;
   font-size: 1rem;
   padding: 0.4775rem;
 `
 export const ScrollBody = styled.div`
+  a{
+    color:#fff;
+  }
   background:#f5f5f5;
-  padding-bottom:2.5rem;
+  height:100%;
+  padding-bottom:10px;
+  ::-webkit-scrollbar{display:none}
   .member{
     animation: changeBg 20s infinite;
     background-image:url(http://m.ixingmei.com/images/member_top_bg.png);
@@ -35,7 +79,15 @@ export const ScrollBody = styled.div`
     height: 11rem;
     position: relative;
     z-index: 1;
-    .member-info:before {}
+    .member-collect{
+        font-size: 0;
+        height: 3rem;
+        background: rgba(0,0,0,0.1);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
     .member-info {
       width: 12rem;
       height: 6rem;
@@ -81,6 +133,18 @@ export const ScrollBody = styled.div`
         border: 1px solid #fff;
         box-sizing: border-box;
       }
+      // 未登录
+      .default-avatar {
+        background-color: rgba(0,0,0,0.5);
+        background-image: url(./img/member_w.png);
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: 60%;
+        width: 4rem;
+        height: 4rem;
+        margin: 0 auto;
+        border-radius: 100%;
+      }
     }
 
     @keyframes  memberInfoDown
@@ -111,19 +175,22 @@ export const Member = styled.div`
     margin-top: 0.5rem !important;
     background: #fff;
     dt{
-      line-height: 0.9rem;
+      line-height: 1rem;
       display: flex;
       justify-content:space-between;
       padding: 0.5rem 0.7rem 0.5rem 0;
       margin-left: 0.5rem;
       border-bottom: solid 0.05rem #EEE;
       font-size: 0.7rem;
-      line-height: 1rem;
       color: #111;
+      h2{
+        margin:0;
+      }
     }
     dd{
       display:flex;
       text-align: center;
+      margin:0;
       padding: 0.5rem 0 0.2rem 0;
       a{
         display:flex;
