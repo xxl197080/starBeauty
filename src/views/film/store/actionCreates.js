@@ -29,7 +29,6 @@ export const asyncSoonFilmList=()=>{
         "X-Host": "mall.film-ticket.film.list"
         }
       }).then(res=>{
-        console.log(res.data.data.films)
         dispatch(onSoonFilmList(res.data.data.films))
       })
     }
