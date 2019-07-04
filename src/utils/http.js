@@ -6,7 +6,7 @@ http.defaults.baseURL = 'http://localhost:9090';
 
 http.interceptors.response.use(response => {
   let res = response.data;
-  if (res.code === 0) {
+  if (res.code === 200) {
     return res;
   } else {
     message.error(res.msg);
