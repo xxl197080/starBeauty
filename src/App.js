@@ -24,19 +24,18 @@ const Search = Loadable({
   loading: () => <Spin indicator={antIcon} />
 });
 const Sets = Loadable({
-  loader: () => import('./views/mine/set'),
-  loading: () => <i>1</i>
-})
-const Login = Loadable ({
-  loader: () => import('./views/mine/login'),
-  loading: () => <i>2</i>
-})
+  loader: () => import("./views/mine/set"),
+  loading: () => <Spin indicator={antIcon} />
+});
+const Login = Loadable({
+  loader: () => import("./views/mine/login"),
+  loading: () => <Spin indicator={antIcon} />
+});
 export default class App extends Component {
   render() {
     return (
       <Router>
         <Switch>
-
           <AuthRoute path='/set' component={Sets}/>
           <Route path="/login" component={Login}/>
           <Route path="/detail" component={Detail} />
