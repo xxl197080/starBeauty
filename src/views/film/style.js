@@ -1,8 +1,5 @@
 import styled from 'styled-components'
-import {Tabs} from 'antd'
-const {
-  TabPane
-} = Tabs;
+
 export const FilmWrap = styled.div `
   height:100%;
   box-sizing:border-box;
@@ -136,4 +133,5 @@ export const FilmsWrap = styled.div`
 padding-top:22%;
 overflow-y:auto;
 padding-bottom:13%;
+background:#fff;
 `

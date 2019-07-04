@@ -1,12 +1,12 @@
 import {GET_IMG_List} from './actionTypes'
-import http from '@/utils/http'
+import axios from 'axios'
 
 export const asyncImgList= () => {
   return (dispatch)=>{
-    http.get('http://www.ixingmei.com/api/index.php?act=activitylist&op=index')
+    axios.get('http://localhost:3001/findlist')
     .then(res=>{
       console.log(res)
-      dispatch(onImgList(res))
+      dispatch(onImgList(res.data))
     })
     }
 }

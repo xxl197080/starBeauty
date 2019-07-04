@@ -13,88 +13,77 @@ import { Icon } from "antd";
 import * as actions from "./store/actionCreates";
 
 class Film extends React.Component {
-  
-  nowPlaying=(key)=>{
-    if(key==="1"){
-      return(
-        <FilmsWrap className="smallbody">
-              {this.props.nowFilmList.map(item => {
-                return (
-                  <ListWrap key={item.filmId}>
-                    <div className="movie-item parting movie-item-top">
-                      <div className="p-left">
-                        <img src={item.poster} alt="fanbufan" />
-                      </div>
-                      <div className="p-middle">
-                        <div className="moviename ng-binding">{item.name}</div>
-                        <div className="explain ng-binding">
-                          {item.synopsis}
-                        </div>
-                        <div className="assess parent_score">
-                          <div
-                            className="fl stars"
-                            style={{ backgroundImage: "url(./img/star8.png" }}
-                          />
-                          <div className="fl score ng-binding">
-                            {item.grade}
-                          </div>
-                        </div>
-                      </div>
-                      <div className="p-right">
-                        <a
-                          nav-direction="forward"
-                          href="#/tab/movie/cinema/1903/112306"
-                        >
-                          <span>购买</span>
-                        </a>
-                      </div>
-                    </div>
-                  </ListWrap>
-                );
-              })}
-            </FilmsWrap>
-      )
-    }else{
+  nowPlaying = key => {
+    if (key === "1") {
       return (
         <FilmsWrap className="smallbody">
-              {this.props.soonFilmList.map(item => {
-                return (
-                  <ListWrap key={item.filmId}>
-                    <div className="movie-item parting movie-item-top">
-                      <div className="p-left">
-                        <img src={item.poster} alt="fanbufan" />
-                      </div>
-                      <div className="p-middle">
-                        <div className="moviename ng-binding">{item.name}</div>
-                        <div className="explain ng-binding">
-                          {item.synopsis}
-                        </div>
-                        <div className="assess parent_score">
-                          <div
-                            className="fl stars"
-                            style={{ backgroundImage: "url(./img/star8.png" }}
-                          />
-                          <div className="fl score ng-binding">
-                            {item.grade}
-                          </div>
-                        </div>
-                      </div>
+          {this.props.nowFilmList.map(item => {
+            return (
+              <ListWrap key={item.filmId}>
+                <div className="movie-item parting movie-item-top">
+                  <div className="p-left">
+                    <img src={item.poster} alt="fanbufan" />
+                  </div>
+                  <div className="p-middle">
+                    <div className="moviename ng-binding">{item.name}</div>
+                    <div className="explain ng-binding">{item.synopsis}</div>
+                    <div className="assess parent_score">
+                      <div
+                        className="fl stars"
+                        style={{ backgroundImage: "url(./img/star8.png" }}
+                      />
+                      <div className="fl score ng-binding">{item.grade}</div>
                     </div>
-                  </ListWrap>
-                );
-              })}
-            </FilmsWrap>
-      )
+                  </div>
+                  <div className="p-right">
+                    <a
+                      nav-direction="forward"
+                      href="#/tab/movie/cinema/1903/112306"
+                    >
+                      <span>购买</span>
+                    </a>
+                  </div>
+                </div>
+              </ListWrap>
+            );
+          })}
+        </FilmsWrap>
+      );
+    } else {
+      return (
+        <FilmsWrap className="smallbody">
+          {this.props.soonFilmList.map(item => {
+            return (
+              <ListWrap key={item.filmId}>
+                <div className="movie-item parting movie-item-top">
+                  <div className="p-left">
+                    <img src={item.poster} alt="fanbufan" />
+                  </div>
+                  <div className="p-middle">
+                    <div className="moviename ng-binding">{item.name}</div>
+                    <div className="explain ng-binding">{item.synopsis}</div>
+                    <div className="assess parent_score">
+                      <div
+                        className="fl stars"
+                        style={{ backgroundImage: "url(./img/star8.png" }}
+                      />
+                      <div className="fl score ng-binding">{item.grade}</div>
+                    </div>
+                  </div>
+                </div>
+              </ListWrap>
+            );
+          })}
+        </FilmsWrap>
+      );
     }
-  }
-  
-  chgClass=(key)=>{
-    this.props.chgBool(key)
-  }
-  
+  };
+
+  chgClass = key => {
+    this.props.chgBool(key);
+  };
 
   render() {
-
     return (
       <FilmWrap>
         <HeaderWrap>
@@ -105,13 +94,21 @@ class Film extends React.Component {
           </SubHeaderWrap>
           <SubHeaderWrap> 影院</SubHeaderWrap>
         </HeaderWrap>
-        <TabsWrap >
-            <SubTabsWrap onClick={this.chgClass.bind(this,this.props.keyList[0])} key={this.props.keyList[0]}  className={this.props.bool === '1' ? 'active' :'common'}>
-              正在上映
-            </SubTabsWrap>
-            <SubTabsWrap onClick={this.chgClass.bind(this,this.props.keyList[1])} key={this.props.keyList[1]}  className={this.props.bool === '2' ? 'active ' :'common'}>
+        <TabsWrap>
+          <SubTabsWrap
+            onClick={this.chgClass.bind(this, this.props.keyList[0])}
+            key={this.props.keyList[0]}
+            className={this.props.bool === "1" ? "active" : "common"}
+          >
+            正在上映
+          </SubTabsWrap>
+          <SubTabsWrap
+            onClick={this.chgClass.bind(this, this.props.keyList[1])}
+            key={this.props.keyList[1]}
+            className={this.props.bool === "2" ? "active " : "common"}
+          >
             即将上映
-            </SubTabsWrap>
+          </SubTabsWrap>
         </TabsWrap>
         {this.nowPlaying(this.props.bool)}
       </FilmWrap>
@@ -135,11 +132,10 @@ export default connect(
       dispatch(actions.asyncNowFilmList());
     },
     getSoonFilmList() {
-      console.log(111);
       dispatch(actions.asyncSoonFilmList());
     },
-    chgBool(key){
-      dispatch(actions.chgBools(key))
+    chgBool(key) {
+      dispatch(actions.chgBools(key));
     }
   })
 )(Film);
