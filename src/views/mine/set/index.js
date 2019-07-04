@@ -5,6 +5,7 @@ export default class index extends Component {
     return (
       <div>
         设置
+        <h1>待完善</h1>
       </div>
     )
   }

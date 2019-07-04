@@ -1,9 +1,22 @@
 import *as Types from './actionTypes';
-const initStore ={
-  userInfo:null,
-  isShow:false
-}
 
+const initStore =  document.cookie.split(';').reduce((pre, next) => {
+  const key = next.split('=')[0];
+  const val = next.split('=')[1];
+  pre[key] = val;
+  return pre
+}, {})["user"]?{
+            userInfo: document.cookie.split(';').reduce((pre, next) => {
+              const key = next.split('=')[0];
+              const val = next.split('=')[1];
+              pre[key] = val;
+              return pre
+            }, {}),
+            isShow:false
+                    }:{
+                      userInfo: null,
+                      isShow:false
+                    }
 export default (state=initStore,action)=>{
   let newState = JSON.parse(JSON.stringify(state));
   if( action.type === Types.LOGIN){
@@ -14,10 +27,4 @@ export default (state=initStore,action)=>{
   }
   return newState
 }
-// var cookies = document.cookie.split(';');
-// var cookieObj = cookies.reduce((pre, next) => {
-//     const key = next.split('=')[0];
-//     const val = next.split('=')[1];
-//     pre[key] = val;
-//     return pre;
-// }, {})
+

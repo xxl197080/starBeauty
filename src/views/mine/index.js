@@ -1,6 +1,6 @@
 import React,{ Component,Fragment } from 'react';
 import { connect } from 'react-redux';
-import { Route, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Header, NewIcon, ScrollBody, Member,Menu } from './style.js';
 import { Icon } from 'antd';
 import *as actions from './store/actionCreates';
@@ -15,17 +15,19 @@ class Mine extends Component {
             <ul onClick={this.props.showMenu}>
             <span className="arrow"></span>
               <NavLink to="/home" ><IconFont type="icon-fangzi"/><li >首页</li></NavLink>
-              <NavLink to="/home" className="border"><IconFont type="icon-xiazai1"/><li>购物车</li></NavLink>
-              <NavLink to="/home"><IconFont type="icon-xinxi"/><li>消息</li></NavLink>
+              <a href="javascript:;" className="border"><IconFont type="icon-xiazai1"/><li>购物车</li></a>
+              <a href="javascript:;" onClick={this.tip}><IconFont type="icon-xinxi"/><li>消息</li></a>
             </ul>
         )
       }
   }
   avatar=()=>{
+    console.log(this.props)
     if(this.props.userInfo){
       return (
         <Fragment>
             <div className="user-avatar">
+              <img src="http://img3.ixingmei.com/upload/shop/common/default_user_portrait.png" alt="默认头像"/>
             </div>
             <div className="user-name">
             <span>18870297808</span>
