@@ -67,7 +67,7 @@ export const ScrollBody = styled.div`
   }
   background:#f5f5f5;
   height:100%;
-  padding-bottom:10px;
+  margin-bottom:50px;
   ::-webkit-scrollbar{display:none}
   .member{
     animation: changeBg 20s infinite;
@@ -98,7 +98,7 @@ export const ScrollBody = styled.div`
       animation: memberInfoDown 1000ms  ease-in;
       -webkit-animation: memberInfoDown 1000ms ease-in;
       .user-avatar{
-        background-color: #FFF;
+        background: #FFF ;
         width: 4rem;
         height: 4rem;
         margin: 0 auto;

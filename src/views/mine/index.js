@@ -1,6 +1,6 @@
 import React,{ Component,Fragment } from 'react';
 import { connect } from 'react-redux';
-import { Route, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Header, NewIcon, ScrollBody, Member,Menu } from './style.js';
 import { Icon } from 'antd';
 import *as actions from './store/actionCreates';
@@ -15,8 +15,8 @@ class Mine extends Component {
             <ul onClick={this.props.showMenu}>
             <span className="arrow"></span>
               <NavLink to="/home" ><IconFont type="icon-fangzi"/><li >首页</li></NavLink>
-              <NavLink to="/home" className="border"><IconFont type="icon-xiazai1"/><li>购物车</li></NavLink>
-              <NavLink to="/home"><IconFont type="icon-xinxi"/><li>消息</li></NavLink>
+              <NavLink  to="/" className="border"><IconFont type="icon-xiazai1"/><li>购物车</li></NavLink >
+              <NavLink  to="/" onClick={this.tip}><IconFont type="icon-xinxi"/><li>消息</li></NavLink >
             </ul>
         )
       }
@@ -25,7 +25,9 @@ class Mine extends Component {
     if(this.props.userInfo){
       return (
         <Fragment>
+          <div className="member-info">
             <div className="user-avatar">
+              <img src="http://img3.ixingmei.com/upload/shop/common/default_user_portrait.png" alt="默认头像"/>
             </div>
             <div className="user-name">
             <span>18870297808</span>
@@ -36,13 +38,17 @@ class Mine extends Component {
                 1会员
               </div>
               </NavLink>
+              </div>
         </Fragment>
       )
     }else{
       return (
         <Fragment>
+          <div className="member-info">
           <NavLink to="/login" className="default-avatar" style={{display:'block'}}/>
           <NavLink to="/login" className="to-login">点击登录</NavLink>
+          </div>
+          <div className="member-collect"></div>
         </Fragment>
       )
     }
@@ -61,7 +67,6 @@ class Mine extends Component {
     }
   }
   render () {
-    console.log(this.props.isShow)
     return (
       <Fragment>
         <Header>
@@ -76,12 +81,11 @@ class Mine extends Component {
 
         <ScrollBody>
         <div className="member">
-          <div className="member-info">
+
             {
               this.avatar()
             }
-          </div>
-        <div className="member-collect"></div>
+
         </div>
 
        <Member>
