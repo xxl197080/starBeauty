@@ -135,8 +135,6 @@ import * as actions from '../store/actionCreates'
       }
   }
   render () {
-    console.log(this.state)
-    console.log(this.props)
   return (
     <LoginWrap>
       <header>

@@ -22,7 +22,6 @@ class Mine extends Component {
       }
   }
   avatar=()=>{
-    console.log(this.props)
     if(this.props.userInfo){
       return (
         <Fragment>
@@ -68,7 +67,6 @@ class Mine extends Component {
     }
   }
   render () {
-    console.log(this.props.isShow)
     return (
       <Fragment>
         <Header>
