@@ -59,6 +59,29 @@ export const LoginBox =styled.div`
   display:flex;
   flex-direction:column;
   width:100%;
+  label{
+    position:relative;
+    span{
+      display:block;
+    background:#fff;
+    width:.6rem;
+    height:.6rem;
+    transform:rotate(45deg);
+    border-left:1px solid #666;
+    border-top:1px solid #666;
+    }
+    .query1{
+      position: absolute;
+      top: -7px;
+      left: 3.5rem;
+    }
+    .query2{
+      position: absolute;
+      top: -7px;
+      right: 3.5rem;
+    }
+  }
+
   input{
     height: 2rem;
     width: 100%;
@@ -98,6 +121,7 @@ export const LoginBox =styled.div`
     top:0;
     right:0%;
     font-size:.7rem;
+    padding:0;
   }
   .other{
     box-sizing:border-box;

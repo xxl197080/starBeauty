@@ -1,15 +1,16 @@
 import React, {Component, Fragment} from 'react';
 // import { NavLink } from 'react-router-dom';
+import { message } from 'antd';
 import { LoginWrap, Logo, LoginBox } from './style';
 import { connect } from 'react-redux';
-import * as actions from '../store/actionCreates'
+import * as actions from '../store/actionCreates';
  class Login extends Component{
   constructor (props){
     super(props);
     this.state={
       inputVal:'',
       passWord:'',
-      type:'den',
+      type:'den',// 选择登录
       userName:'',
       code:'',//输入的验证码
       vcode:[],//验证码
@@ -33,19 +34,54 @@ import * as actions from '../store/actionCreates'
     })
     e.target['className']="active"
   }
-
-  input=(e)=>{
-    this.setState({userName: e.target.value})
+clearLogin =()=>{
+  this.props.login({user:this.state.userName});
+  this.refs.userName="";
+  this.refs.vcode="";
+}
+//  检查手机号
+check=()=>{
+  if(/^[1][3,4,5,7,8,9][0-9]{9}$/.test(this.state.userName)){
+    console.log(true)
+  }else{
+    message.error('请输入正确的手机号！',0.5);
+      this.tranCode();
+      this.setState({
+        userName: ""
+      })
   }
-  //  写入输入的验证码
-  code=(e)=>{
+}
+
+input=(e)=>{
+  var number=e.target.value.replace(/[^\d]/ig,"");
+  this.setState({userName: number},
+    ()=>{
+      if(this.state.userName&&this.state.code===this.state.vcode.join('')){
+        this.setState({
+          disabled:false
+        })
+      }else{
+        this.setState({
+          disabled:true
+        });
+      }
+    })
+}
+   //  写入输入的验证码
+   code=(e)=>{
     this.setState({
       code: e.target.value
-    })
+    });
     if(e.target.value === this.state.vcode.join('')){
-      this.setState({
-        disabled:false
-      })
+      if(this.state.userName){
+        this.setState({
+          disabled:false
+        })
+      }else{
+        this.setState({
+          disabled:true
+        });
+      }
     }
   }
   //  产生验证码
@@ -70,7 +106,7 @@ import * as actions from '../store/actionCreates'
   tranCode = () => {
     this.putCode()
   }
-  //  第次加载验证码
+  //  第1次加载验证码
   componentDidMount(){
     this.putCode()
   }
@@ -80,28 +116,29 @@ import * as actions from '../store/actionCreates'
         return (
           <Fragment>
         <label>
-          <input type="text" onChange={this.input} value={this.state.userName} maxLength="11" placeholder="请输入账号"/>
+          <span className="query1"></span>
+          <input type="text" onChange={this.input} value={this.state.userName} onBlur={this.check} maxLength="11" placeholder="请输入账号" ref="userName"/>
         </label>
         <label className="vcode">
-          <input type="text"  onChange={this.code}  value={this.state.code}  maxLength="6" placeholder="请输入验证码（6位）"/>
+          <input type="text"  onChange={this.code}  value={this.state.code}  maxLength="6" placeholder="请输入验证码（6位）" ref="vcode"/>
           <button type="text" className="rcode" onClick={this.tranCode} >{
-            this.state.vcode.map((item,index)=>{
-              let c=`${item}21`
-              // let g=Math.floor(Math.random()*180)  旋转角度
-              return <i key={index}
-              style={{color:`#${c}`,
-                  fontWeight:'999'
-                }}>{item}</i>
-            })
+          this.state.vcode.map((item,index)=>{
+            let c=`${item}21`
+            // let g=Math.floor(Math.random()*180)  旋转角度
+            return <i key={index}
+            style={{color:`#${c}`,
+                fontWeight:'999'
+              }}>{item}</i>
+          })
           }</button> {/* 验证码*/}
         </label>
         <button
-        onClick={this.props.login.bind(null,{user:this.state.userName})}
+        onClick={this.clearLogin}
         disabled={this.state.disabled}
         style={{background: this.state.disabled? '#ccc':'#FF6300'}}>确定</button>
         <div className="other">
           <span><i>其他方式登录</i></span>
-        <input type="text" defaultValue="账号密码登录"/>
+        <input type="button" defaultValue="账号密码登录"/>
         </div>
           </Fragment>
         )
@@ -110,11 +147,12 @@ import * as actions from '../store/actionCreates'
         return(
         <Fragment>
           <label>
-          <input type="text" onChange={this.input} value={this.state.userName} maxLength="11" placeholder="请输入手机号"/>
+          <span className="query2"></span>
+          <input type="text" onChange={this.input} value={this.state.userName} maxLength="11" placeholder="请输入手机号" onBlur={this.check}/>
         </label>
         <label className="vcode">
           <input type="text"  onChange={this.code}  value={this.state.code} placeholder="请输入验证码（6位）"/>
-          <button type="text" className="rcode" onClick={this.tranCode} >{
+          <button type="button" className="rcode" onClick={this.tranCode} >{
             this.state.vcode.map((item,index)=>{
               let c=`${item}21`
               // let g=Math.floor(Math.random()*180)  旋转角度
@@ -128,7 +166,7 @@ import * as actions from '../store/actionCreates'
         <button
         disabled={this.state.disabled}
         style={{background: this.state.disabled? '#ccc':'#FF6300'}}
-        onClick={this.sign.bind(null,{user:this.state.userName})}
+        onClick={this.props.signin.bind(null,{user:this.state.userName})}
         >下一步</button>
         </Fragment>
         )
@@ -159,7 +197,6 @@ import * as actions from '../store/actionCreates'
   }
 }
 
-
 export default connect(
   null,
   (dispatch,props)=>({
@@ -167,7 +204,7 @@ export default connect(
       dispatch(actions.onLogin(value,props))
     },
     signin(value){
-      dispatch(actions.onSignin(value))
+      dispatch(actions.onSignin(value,props))
     }
   })
 )(Login)
