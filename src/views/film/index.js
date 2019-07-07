@@ -90,8 +90,7 @@ class Film extends React.Component {
       <FilmWrap>
         <HeaderWrap>
           <SubHeaderWrap>
-            {" "}
-            深圳
+            { this.props.nowCity }
             <Icon type="down" className="downarrow" />
           </SubHeaderWrap>
           <SubHeaderWrap> 影院</SubHeaderWrap>
@@ -113,7 +112,7 @@ class Film extends React.Component {
           </SubTabsWrap>
         </TabsWrap>
         {this.nowPlaying(this.props.bool)}
-        
+
       </FilmWrap>
     );
   }
@@ -135,7 +134,8 @@ export default connect(
     nowFilmList: film.nowFilmList,
     soonFilmList: film.soonFilmList,
     keyList: film.keyList,
-    bool: film.bool
+    bool: film.bool,
+    nowCity: film.nowCity
   }),
   dispatch => ({
     getNowFilmList() {

@@ -14,17 +14,15 @@ class Set extends Component {
           <ul onClick={this.props.showMenu}>
           <span className="arrow"></span>
             <NavLink to="/home" ><IconFont type="icon-fangzi"/><li >首页</li></NavLink>
-            <NavLink  to="/" className="border"><IconFont type="icon-sousuo"/><li>搜索</li></NavLink >
-            <NavLink  to="/" onClick={this.tip}><IconFont type="icon-xinxi"/><li>消息</li></NavLink >
+            <NavLink  to="*" className="border"><IconFont type="icon-sousuo"/><li>搜索</li></NavLink >
+            <NavLink  to="*" onClick={this.tip}><IconFont type="icon-xinxi"/><li>消息</li></NavLink >
           </ul>
       )
     }
 }
 //  退出
-signout = ()=>{
-  console.log(11)
+async signout(){
   document.cookie=`user= ;expires=-1;`
-  this.props.history.replace("/mine")
   window.location.reload()
 }
   render() {
@@ -61,7 +59,7 @@ signout = ()=>{
             <h6>您在使用中遇到的问题与建议可向我们反馈</h6>
             <IconFont type="icon-right" style={{color:"#333"}}/>
           </li>
-          <li onClick={this.signout}>
+          <li onClick={this.signout.bind(this)}>
             <h4>安全退出</h4>
           </li>
         </List>

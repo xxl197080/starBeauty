@@ -17,17 +17,17 @@ export const onLogin = (value,props)=>{
               }
     })
   .then(res=>{(()=>{
-    message.success("登录成功");
+    message.success("登录成功",0.5);
       var d = new Date();
       d.setTime(d.getTime()+(1*24*60*60*1000));
       var expires = "expires="+d.toGMTString();
       document.cookie=`user=${value.user};${expires};`
     })(value);
     dispatch({type: Types.LOGIN, value});
-            props.history.replace('/home');
+            props.history.replace('/mine');
   })
   .catch(err=>{
-    alert(err)
+    message.error(err,1.5)
   })}
 }
 
@@ -48,11 +48,11 @@ export const onSignin =(value,props) =>{
               if (response.ok) {
                   return response.json()   
               }else {
-                  return Promise.reject('未找到该账号!')   
+                  return Promise.reject(`该账号已经存在，不允许重复注册!请确认输入的手机号`)   
               }
     })
   .then(res=>{(()=>{
-    message.success("注册成功");
+    message.success("注册成功/已自动登录");
       var d = new Date();
       d.setTime(d.getTime()+(1*24*60*60*1000));
       var expires = "expires="+d.toGMTString();
@@ -60,10 +60,10 @@ export const onSignin =(value,props) =>{
     })(value);
     dispatch({type: Types.SIGNIN,
         value});
-            props.history.replace('/login');
+            props.history.replace('/mine');
   })
   .catch(err=>{
-    alert(err)
+    message.error(err,2)
   })}
 
 }

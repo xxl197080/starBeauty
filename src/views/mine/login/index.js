@@ -42,7 +42,7 @@ clearLogin =()=>{
 //  检查手机号
 check=()=>{
   if(/^[1][3,4,5,7,8,9][0-9]{9}$/.test(this.state.userName)){
-    console.log(true)
+   this.refs.userName.style.color="green"
   }else{
     message.error('请输入正确的手机号！',0.5);
       this.tranCode();
@@ -51,7 +51,7 @@ check=()=>{
       })
   }
 }
-
+//  输入账号、验证账号有效性
 input=(e)=>{
   var number=e.target.value.replace(/[^\d]/ig,"");
   this.setState({userName: number},
@@ -67,12 +67,12 @@ input=(e)=>{
       }
     })
 }
-   //  写入输入的验证码
+   //  写入输入的验证码,并校验
    code=(e)=>{
     this.setState({
       code: e.target.value
     });
-    if(e.target.value === this.state.vcode.join('')){
+    if(e.target.value.toLowerCase() === this.state.vcode.join('').toLowerCase()){
       if(this.state.userName){
         this.setState({
           disabled:false
@@ -120,10 +120,10 @@ input=(e)=>{
           <input type="text" onChange={this.input} value={this.state.userName} onBlur={this.check} maxLength="11" placeholder="请输入账号" ref="userName"/>
         </label>
         <label className="vcode">
-          <input type="text"  onChange={this.code}  value={this.state.code}  maxLength="6" placeholder="请输入验证码（6位）" ref="vcode"/>
+          <input type="text"  onChange={this.code}  value={this.state.code}  maxLength="6" placeholder="请输入验证码（6位不区分大小写）" ref="vcode"/>
           <button type="text" className="rcode" onClick={this.tranCode} >{
           this.state.vcode.map((item,index)=>{
-            let c=`${item}21`
+            let c=`${item}73`
             // let g=Math.floor(Math.random()*180)  旋转角度
             return <i key={index}
             style={{color:`#${c}`,
@@ -151,10 +151,10 @@ input=(e)=>{
           <input type="text" onChange={this.input} value={this.state.userName} maxLength="11" placeholder="请输入手机号" onBlur={this.check}/>
         </label>
         <label className="vcode">
-          <input type="text"  onChange={this.code}  value={this.state.code} placeholder="请输入验证码（6位）"/>
+          <input type="text"  onChange={this.code}  value={this.state.code} placeholder="请输入验证码（6位不区分大小写）"/>
           <button type="button" className="rcode" onClick={this.tranCode} >{
             this.state.vcode.map((item,index)=>{
-              let c=`${item}21`
+              let c=`${item}73`
               // let g=Math.floor(Math.random()*180)  旋转角度
               return <i key={index}
               style={{color:`#${c}`,

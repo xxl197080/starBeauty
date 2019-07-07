@@ -4,7 +4,8 @@ const initState={
   nowFilmList:[],
   soonFilmList:[],
   keyList:['1','2'],
-  bool: '1'
+  bool: '1',
+  nowCity: '深圳'
 }
 
 export default (state=initState,action)=>{

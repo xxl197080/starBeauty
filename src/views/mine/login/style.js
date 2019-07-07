@@ -93,6 +93,7 @@ export const LoginBox =styled.div`
     border: 1;
     padding-left: 3%;
     color: #999;
+    font-weight:900;
     font-size: 0.6rem;
     margin-bottom:.8rem;
   }
