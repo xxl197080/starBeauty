@@ -68,7 +68,6 @@ export const ScrollBody = styled.div`
   background:#f5f5f5;
   height:100%;
   margin-bottom:50px;
-  ::-webkit-scrollbar{display:none}
   .member{
     animation: changeBg 20s infinite;
     background-image:url(http://m.ixingmei.com/images/member_top_bg.png);
@@ -170,6 +169,7 @@ export const ScrollBody = styled.div`
 90%{background-color:#ED5564;}
 }
 `
+// mine页
 export const Member = styled.div`
   dl{
     margin-top: 0.5rem !important;
