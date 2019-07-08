@@ -140,6 +140,5 @@ background:#fff;
     background-color: #f0f0f0;
     color: #e76a00;
     margin-bottom:0;
-    display:none;
 }
 `

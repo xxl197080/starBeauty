@@ -148,7 +148,7 @@ input=(e)=>{
         <Fragment>
           <label>
           <span className="query2"></span>
-          <input type="text" onChange={this.input} value={this.state.userName} maxLength="11" placeholder="请输入手机号" onBlur={this.check}/>
+          <input type="text" onChange={this.input} value={this.state.userName} maxLength="11" placeholder="请输入手机号" onBlur={this.check} ref="userName"/>
         </label>
         <label className="vcode">
           <input type="text"  onChange={this.code}  value={this.state.code} placeholder="请输入验证码（6位不区分大小写）"/>

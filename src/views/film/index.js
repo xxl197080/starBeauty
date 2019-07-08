@@ -124,7 +124,9 @@ class Film extends React.Component {
   }
   componentWillUnmount(){
     console.log(111)
-    window.removeEventListener('scroll',this.props.scrollAct)
+    window.removeEventListener("scroll",function(){
+      console.log("yichu")
+    })
    }
 }
 
@@ -147,18 +149,17 @@ export default connect(
       dispatch(actions.chgBools(key));
     },
     scrollAct(key){
-      // let filmbox=this.refs['filmbox']
-      let scrollHeight=document.documentElement.scrollHeight
-      let scrollTop=document.documentElement.scrollTop
-      let clientHeight=document.documentElement.clientHeight
-      console.log(scrollHeight,scrollTop,clientHeight)
-      if(scrollHeight-scrollTop-clientHeight<=0 && this.props.nowFilmList.length!==0){
-        this.refs["msg"].style="display:block"
+      // // let filmbox=this.refs['filmbox']
+      // let scrollHeight=document.documentElement.scrollHeight
+      // let scrollTop=document.documentElement.scrollTop
+      // let clientHeight=document.documentElement.clientHeight
+      // if(scrollHeight-scrollTop-clientHeight<=0 && this.props.nowFilmList.length!==0){
+      //   this.refs["msg"].style="display:block"
 
-        // dispatch(actions.asyncFilmList(key))
-      }else{
-        this.refs["msg"].style="display:none"
-      }
+      //   // dispatch(actions.asyncFilmList(key))
+      // }else{
+      //   this.refs["msg"].style="display:none"
+      // }
     }
   })
 )(Film);
