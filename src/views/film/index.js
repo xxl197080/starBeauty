@@ -90,8 +90,7 @@ class Film extends React.Component {
       <FilmWrap>
         <HeaderWrap>
           <SubHeaderWrap>
-            {" "}
-            深圳
+            { this.props.nowCity }
             <Icon type="down" className="downarrow" />
           </SubHeaderWrap>
           <SubHeaderWrap > 影院</SubHeaderWrap>
@@ -134,7 +133,8 @@ export default connect(
     nowFilmList: film.nowFilmList,
     soonFilmList: film.soonFilmList,
     keyList: film.keyList,
-    bool: film.bool
+    bool: film.bool,
+    nowCity: film.nowCity
   }),
   dispatch => ({
     getNowFilmList() {

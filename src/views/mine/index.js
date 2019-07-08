@@ -5,7 +5,7 @@ import { Header, NewIcon, ScrollBody, Member,Menu } from './style.js';
 import { Icon } from 'antd';
 import *as actions from './store/actionCreates';
 const IconFont = Icon.createFromIconfontCN({
-  scriptUrl: '//at.alicdn.com/t/font_1272994_68yxt2x5heg.js',
+  scriptUrl: '//at.alicdn.com/t/font_1272994_riz8c8w0r3.js',
 });
 class Mine extends Component {
 
@@ -30,7 +30,9 @@ class Mine extends Component {
               <img src="http://img3.ixingmei.com/upload/shop/common/default_user_portrait.png" alt="默认头像"/>
             </div>
             <div className="user-name">
-            <span>18870297808</span>
+            <span>{
+              this.props.userInfo.user
+            }</span>
             </div>
               <NavLink to="/">
               <div className="user-level">
@@ -93,7 +95,7 @@ class Mine extends Component {
             <dt><h2><IconFont type="icon-dingdan"/> 电影订单</h2><IconFont type="icon-right"/></dt>
             <dt><h2><IconFont type="icon-dingdan"/> 其他订单</h2><IconFont type="icon-right"/></dt>
             <dd>
-              <NavLink to="/"><IconFont type="icon-qianbao1"/><p>待付款</p></NavLink>
+              <NavLink to="/ "><IconFont type="icon-qianbao1"/><p>待付款</p></NavLink>
               <NavLink to="/"><IconFont type="icon-dais"/><p>待收货</p></NavLink>
               <NavLink to="/"><IconFont type="icon-che"/><p>待自提</p></NavLink>
               <NavLink to="/"><IconFont type="icon-ping"/><p>待评价</p></NavLink>
@@ -108,7 +110,7 @@ class Mine extends Component {
           </dl>
           <dl className="md5">
             <dt><h2><IconFont type="icon-di"/> 收货地址管理</h2><IconFont type="icon-right"/></dt>
-            <dt><h2><IconFont type="icon-she"/> 用户设置</h2><IconFont type="icon-right"/></dt>
+            <NavLink to="/set"><dt><h2><IconFont type="icon-she"/> 用户设置</h2><IconFont type="icon-right"/></dt></NavLink>
           </dl>
         </Member>
         </ScrollBody>
