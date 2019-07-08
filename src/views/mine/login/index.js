@@ -128,7 +128,7 @@ import * as actions from '../store/actionCreates'
         <button
         disabled={this.state.disabled}
         style={{background: this.state.disabled? '#ccc':'#FF6300'}}
-        onClick={this.sign.bind(null,{user:this.state.userName})}
+        onClick={this.props.signin.bind(null,{user:this.state.userName})}
         >下一步</button>
         </Fragment>
         )

@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-
 export const FilmWrap = styled.div `
   height:100%;
   box-sizing:border-box;
@@ -20,7 +19,7 @@ export const HeaderWrap = styled.div `
   align-items:center;
   z-index:99`
 
-export const SubHeaderWrap = styled.button`
+export const SubHeaderWrap = styled.a`
   color:#fff;
   display: flex;
   align-self: middle;

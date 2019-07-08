@@ -47,7 +47,7 @@ class Film extends React.Component {
               </ListWrap>
             );
           })}
-          <p className="bottommsg" ref="msg1">已全部加载完成</p>
+          <p className="bottommsg" ref="msg">已全部加载完成</p>
         </FilmsWrap>
       );
     } else {
@@ -94,7 +94,7 @@ class Film extends React.Component {
             深圳
             <Icon type="down" className="downarrow" />
           </SubHeaderWrap>
-          <SubHeaderWrap> 影院</SubHeaderWrap>
+          <SubHeaderWrap > 影院</SubHeaderWrap>
         </HeaderWrap>
         <TabsWrap>
           <SubTabsWrap
@@ -113,7 +113,6 @@ class Film extends React.Component {
           </SubTabsWrap>
         </TabsWrap>
         {this.nowPlaying(this.props.bool)}
-        
       </FilmWrap>
     );
   }
@@ -121,12 +120,12 @@ class Film extends React.Component {
   componentDidMount() {
     this.props.getNowFilmList();
     this.props.getSoonFilmList();
-    this.refs['filmbox'].addEventListener('scroll',this.props.scrollAct.bind(this,this.props.bool))
+    window.addEventListener('scroll',this.props.scrollAct.bind(this,this.props.bool))
     console.log(this.refs['filmbox'])
   }
   componentWillUnmount(){
     console.log(111)
-    this.refs['filmbox'].removeEventListener('scroll',this.props.scrollAct)
+    window.removeEventListener('scroll',this.props.scrollAct)
    }
 }
 
@@ -148,11 +147,11 @@ export default connect(
       dispatch(actions.chgBools(key));
     },
     scrollAct(key){
-      let filmbox=this.refs['filmbox']
-      let scrollHeight=filmbox.documentElement.scrollHeight
-      let scrollTop=filmbox.scrollTop
-      let clientHeight=filmbox.clientHeight
-      console.log(scrollHeight,scrollTop,clientHeight,filmbox)
+      // let filmbox=this.refs['filmbox']
+      let scrollHeight=document.documentElement.scrollHeight
+      let scrollTop=document.documentElement.scrollTop
+      let clientHeight=document.documentElement.clientHeight
+      console.log(scrollHeight,scrollTop,clientHeight)
       if(scrollHeight-scrollTop-clientHeight<=0 && this.props.nowFilmList.length!==0){
         this.refs["msg"].style="display:block"
 
