@@ -15,6 +15,9 @@ export default (state=initStore,action)=>{
   if( action.type === Types.IS_SHOW){
       newState.isShow = !newState.isShow
   }
+  if( action.type === Types.SIGNIN){
+    newState.userInfo = action.value
+  }
   return newState
 }
 
