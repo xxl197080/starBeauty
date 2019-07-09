@@ -99,7 +99,7 @@ class Home extends React.Component {
   // 组件更新时创建 Swiper
   componentDidUpdate(prevProps){
     // 有好几个数据，会更新几次，所以需要判断一下, 这个生命周期函数会接收到上一次的props，根据上一次的props和this.props中的bannerList有没有变化，有变化就说明banner数据渲染到页面了，就可以 new Swiper
-    if (!this.mySwiper && prevProps.bannerList.length !== this.props.bannerList.length) {
+    if (!this.mySwiper && this.props.bannerList.length > 0) {
       this.mySwiper = new Swiper('.swiper-container', {
         loop: true,
         autoplay: {

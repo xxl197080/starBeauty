@@ -113,6 +113,7 @@ export const MainWrap = styled.div`
       box-sizing: border-box;
       padding: 4px;
       height: 10rem;
+      font-size: 0.7rem;
       .nav-img{
         width: 100%;
       }
@@ -124,12 +125,14 @@ export const MainWrap = styled.div`
         text-overflow: ellipsis;
         margin: 0;
         background: #fff;
-        padding-left: 10px;
+        padding-left: 6px;
+        line-height: 1rem;
       }
       .movie-price{
         color: #f33;
         background: #fff;
-        padding-left: 10px;
+        padding-left: 6px;
+        line-height: 1rem;
       }
     }
   }

@@ -1,12 +1,71 @@
 {
   "nav": [
-    { "id": 1, "name": "电影", "img": "./img/nav1.png", "to": "/film" },
-    { "id": 2, "name": "通信", "img": "./img/nav2.png", "to": "/film" },
-    { "id": 3, "name": "随影卡", "img": "./img/nav3.png", "to": "/film" },
-    { "id": 4, "name": "充值送", "img": "./img/nav4.png", "to": "/film" },
-    { "id": 5, "name": "商城", "img": "./img/nav5.png", "to": "/film" },
-    { "id": 6, "name": "日用美妆", "img": "./img/nav6.png", "to": "/film" },
-    { "id": 7, "name": "复联手办", "img": "./img/nav7.png", "to": "/film" },
-    { "id": 8, "name": "JJ演唱会", "img": "./img/nav8.png", "to": "/film" }
+    {
+      "id": 1,
+      "name": "电影",
+      "img": "./img/nav1.png",
+      "to": "/film"
+    },
+    {
+      "id": 2,
+      "name": "通信",
+      "img": "./img/nav2.png",
+      "to": "/film"
+    },
+    {
+      "id": 3,
+      "name": "随影卡",
+      "img": "./img/nav3.png",
+      "to": "/film"
+    },
+    {
+      "id": 4,
+      "name": "充值送",
+      "img": "./img/nav4.png",
+      "to": "/film"
+    },
+    {
+      "id": 5,
+      "name": "商城",
+      "img": "./img/nav5.png",
+      "to": "/market"
+    },
+    {
+      "id": 6,
+      "name": "日用美妆",
+      "img": "./img/nav6.png",
+      "to": "/film"
+    },
+    {
+      "id": 7,
+      "name": "复联手办",
+      "img": "./img/nav7.png",
+      "to": "/film"
+    },
+    {
+      "id": 8,
+      "name": "JJ演唱会",
+      "img": "./img/nav8.png",
+      "to": "/film"
+    }
+  ],
+  "findlist": [
+    {
+      "id": "111654",
+      "litpic": "http://img2.ixingmei.com/uploads/allimg/180302/1858192-1P3021021020-L.jpg",
+      "litpic_height": "266",
+      "litpic_width": "800",
+      "title": "新人有礼",
+      "url_wap": "https://at.umeng.com/eCWnym"
+    }
+  ],
+  "userInfo": [
+    {
+      "user": "18870297808"
+    },
+    {
+      "id": "18888888888",
+      "user": "18888888888"
+    }
   ]
 }
