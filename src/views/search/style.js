@@ -26,7 +26,7 @@ export const SearchWrap = styled.div`
     }
     .header-inp {
       flex: 1;
-      display: block;
+      display: flex;
       height: 1.4rem;
       border: solid 0.05rem #dedede;
       border-radius: 0.2rem;
@@ -34,6 +34,7 @@ export const SearchWrap = styled.div`
       background-color: #fff;
       text-align: left;
       position: relative;
+      font-size: 0.7rem;
       .search-inp {
         border: 0;
         outline: none;
@@ -115,6 +116,7 @@ export const SearchWrap = styled.div`
         vertical-align: top;
         display: inline-block;
         width: 40%;
+        font-size: 0.7rem;
       }
     }
     .btn {
