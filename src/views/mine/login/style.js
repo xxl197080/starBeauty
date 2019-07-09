@@ -28,6 +28,7 @@ export const LoginWrap = styled.div`
 }
 .ul_tab {
     padding: 5% 3%;
+    margin-bottom: 1rem;
     .tabs{
       display:flex;
       li{
