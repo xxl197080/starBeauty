@@ -30,6 +30,7 @@ export const LoginWrap = styled.div`
     padding: 5% 3%;
     .tabs{
       display:flex;
+      margin-bottom: 1rem;
       li{
         text-align:center;
         flex:1;
