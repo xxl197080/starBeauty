@@ -1,59 +1,62 @@
-import styled from 'styled-components'
-export const FilmWrap = styled.div `
-  height:100%;
-  box-sizing:border-box;
-  background:#fff;
-`
+import styled from "styled-components";
+export const FilmWrap = styled.div`
+  height: 100%;
+  box-sizing: border-box;
+  background: #fff;
+`;
 
-export const HeaderWrap = styled.div `
+export const HeaderWrap = styled.div`
   background-color: #e76a00;
-  background-image: linear - gradient(0 deg, #ff5200, #ff9200 50% , transparent 50% );
-  width:100%;
-  height:7%;
-  text-align:center;
-  display:flex;
-  padding:0 10px;
-  justify-content:space-between;
-  position:fixed;
-  top:0;
-  align-items:center;
-  z-index:99`
+  background-image: linear -
+    gradient(0 deg, #ff5200, #ff9200 50%, transparent 50%);
+  width: 100%;
+  height: 7%;
+  text-align: center;
+  display: flex;
+  padding: 0 10px;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  align-items: center;
+  z-index: 99;
+`;
 
 export const SubHeaderWrap = styled.a`
-  color:#fff;
+  color: #fff;
   display: flex;
   align-self: middle;
-  border:none;
-  text-decoration:none;
-  background:transparent;
-  .downarrow{
-    position:relative;
-    top:4px;
+  border: none;
+  font-size: 0.8rem;
+  text-decoration: none;
+  background: transparent;
+  .downarrow {
+    position: relative;
+    top: 4px;
   }
-`
+`;
 export const TabsWrap = styled.div`
-display:flex;
-width:100%;
-justify-content: space-between;
-padding-top:14%;
-  position:fixed;
-  top:0;
-  z-index:18;
-  background:#fff;
-  height:13%;
-  align-self:center;
-  .active{
-  border-bottom: 3px solid #e76a00;
-  color: #e76a00;
-}
-` 
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding-top: 14%;
+  position: fixed;
+  top: 0;
+  z-index: 18;
+  background: #fff;
+  height: 13%;
+  align-self: center;
+  .active {
+    border-bottom: 3px solid #e76a00;
+    color: #e76a00;
+  }
+`;
 export const SubTabsWrap = styled.div`
-flex:1 1 50%;
-/* height:100%; */
-text-align:center;
-font-size:17px;
-box-sizing:border-box;
-`
+  flex: 1 1 50%;
+  /* height:100%; */
+  text-align: center;
+  font-size: 17px;
+  box-sizing: border-box;
+`;
 
 export const ListWrap = styled.div`
   .movie-item {
@@ -108,8 +111,8 @@ export const ListWrap = styled.div`
         font-size: 12px;
         color: #727272;
         }
-    };
-    
+    }
+
     }
     .p-right{
       float: right;
@@ -126,19 +129,20 @@ export const ListWrap = styled.div`
       font-size: 12px;
       color: #fc8048;
   }
-  }`
+}
+}`;
 
 export const FilmsWrap = styled.div`
-padding-top:22%;
-overflow-y:auto;
-padding-bottom:11%;
-background:#fff;
-.bottommsg{
+  padding-top: 22%;
+  overflow-y: auto;
+  padding-bottom: 11%;
+  background: #fff;
+  .bottommsg {
     text-align: center;
     line-height: 30px;
     font-size: 14px;
     background-color: #f0f0f0;
     color: #e76a00;
-    margin-bottom:0;
-}
-`
+    margin-bottom: 0;
+  }
+`;
